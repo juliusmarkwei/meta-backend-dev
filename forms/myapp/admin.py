@@ -3,4 +3,3 @@ from .models import Shelf
 
 
 admin.site.register(Shelf)
-

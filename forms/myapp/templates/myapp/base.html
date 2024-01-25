@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--header-->   
+    <div style="height:10%;">   
+        <h2 align="center">Django Web Application</h2>   
+        <hr>   
+    </div> 
+
+    <!—side bar-->   
+    <div style="width:20%; float:left; border-right-style:groove">   
+        <ul>   
+            <b>
+                <li><a href="home/">home</a></li>   
+                <li><a href="register/">register</a></li>   
+                <li><a href="login/">login</a></li> 
+            </b>
+        </ul>
+    </div>
+
+    <!--contents-->  
+    <div style="margin-left:21%;">  
+        <p>   
+            {% block contents %}  
+            
+            {% endblock %} 
+        </p>
+    </div>
+
+    <!--footer-->   
+    <hr>   
+
+    {% block footer %}
+        <div>   
+            <h4 align="right">All rights reserved</h4> 
+        </div>
+    {% endblock %}
+    </body>
+</html>

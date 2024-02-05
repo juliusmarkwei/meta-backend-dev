@@ -16,6 +16,7 @@ class Books(models.Model):
     author = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
     published_date = models.DateField()
+    price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True, default=None)
     
     def __str__(self) -> str:

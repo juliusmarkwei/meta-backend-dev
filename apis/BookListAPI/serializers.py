@@ -9,15 +9,15 @@ class CategorySerializer(serializers.ModelSerializer):
         
 class BooksSerializer(serializers.ModelSerializer):
     contributor = serializers.SerializerMethodField(method_name='get_contributor')
-    category = serializers.HyperlinkedRelatedField(
-        queryset = Category.objects.all(),
-        view_name='category-detail',
-        lookup_field = 'pk'
-    )
+    category = CategorySerializer(read_only=True)
     class Meta:
         model = Books
-        fields = ['id', 'author', 'title', 'published_date', 'contributor', 'category']
+        fields = ['id', 'author', 'title', 'price', 'published_date', 'contributor', 'category']
         depth = 1
+        
+    def validate_price(self, value):
+        if value < 0:
+            raise serializers.ValidationError('Price must be greater than 0')
         
     def get_contributor(self, obj: Books):
         return 'John Doe'
